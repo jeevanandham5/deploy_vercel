@@ -5,6 +5,15 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 
 app.use(cors());
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://jeevanandham5.github.io");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 app.get("/", (req, res, next) => {
   res.send("<h1>iam working :-)</h1>");
