@@ -1,16 +1,21 @@
 const express = require("express");
 const app = express();
 const http = require("http");
-const cors = require("cors");
 const { Server } = require("socket.io");
+const cors = require("cors");
 
-app.use(cors({ origin: "*" }));
+app.use(cors());
 
 app.get("/", (req, res, next) => {
   res.send("<h1>iam working :-)</h1>");
 });
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "https://jeevanandham5.github.io",
+    methods: ["GET", "POST"],
+  },
+});
 
 io.on("connection", (socket) => {
   console.log(`User Connected:${socket.id}`);
