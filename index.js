@@ -10,13 +10,7 @@ app.get("/", (req, res, next) => {
   res.send("<h1>iam working :-)</h1>");
 });
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "https://jeevanandham5.github.io",
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
-});
+const io = new Server(server);
 
 io.on("connection", (socket) => {
   console.log(`User Connected:${socket.id}`);
