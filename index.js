@@ -11,7 +11,10 @@ app.get("/", (req, res, next) => {
 });
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] },
+  cors: {
+    origin: "https://jeevanandham5.github.io/react_github_chatapp",
+    methods: ["GET", "POST"],
+  },
 });
 
 io.on("connection", (socket) => {
