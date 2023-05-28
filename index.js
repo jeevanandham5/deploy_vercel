@@ -23,6 +23,7 @@ const io = new Server(server, {
   cors: {
     origin: "https://jeevanandham5.github.io",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
