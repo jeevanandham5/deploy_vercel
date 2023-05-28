@@ -4,9 +4,7 @@ const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 
-app.use(
-  cors({ origin: "https://jeevanandham5.github.io/react_github_chatapp" })
-);
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res, next) => {
   res.send("<h1>iam working :-)</h1>");
